@@ -15,15 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('nama_perusahaan', 50);
             $table->string('alamat_perusahaan', 200);
-            $table->int('no_telp_perusahaan', 12);
+            $table->string('no_telp_perusahaan', 12); // Menggunakan string untuk nomor telepon
             $table->string('status', 15);
             $table->string('paket', 10);
             $table->string('kebutuhan_laporan', 250);
-            $table->Datetime('masa_aktif');
+            $table->dateTime('masa_aktif'); // Menggunakan dateTime untuk tanggal dan waktu
             $table->string('nama_pic', 30);
-            $table->int('telp_pic', 12);
-            $table->string('alamat_pic',200);
-
+            $table->string('telp_pic', 12); // Menggunakan string untuk nomor telepon
+            $table->string('alamat_pic', 200);
             $table->timestamps();
         });
     }
