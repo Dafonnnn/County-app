@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('index', function () {
+    return view('index');
+});
+Route::get('formclient', function () {
+    return view('formclient');
+});
+Route::get('invoice', function () {
+    return view('invoice');
+});
+Route::get('forminvoice', function () {
+    return view('forminvoice');
 });
