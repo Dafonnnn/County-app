@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{{'assets/style.css'}}">
+    <link rel="stylesheet" href="{{'../assets/style.css'}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,23 +23,24 @@
             <div class="side-button" onclick="window.location.href = 'pekerja';"><i class="fa-solid fa-laptop"></i>Pekerja</div>
         </aside>
         <main>
-        <form action="" method="POST">
+        <form method="POST" action="{{route('pekerja.store')}}">
             @csrf
+
             <p>Nama Pekerja</p>
             <input type="text" class="form-input" name="nama_pekerja" id="nama_pekerja">
             <p>No Telp Pekerja</p>
             <input type="tel" class="form-input" name="no_telp_pekerja" id="no_telp_pekerja">
             <p>Status</p>
-            <select name="" id="" class="form-input" name="status" id="status">
-                <option value=""><div class="bar aktif">Aktif</div></option>
-                <option value=""><div class="bar aktif">Nonaktif</div></option>
+            <select class="form-input" name="status" id="status">
+                <option value="Aktif"><div class="bar aktif">Aktif</div></option>
+                <option value="Nonaktif"><div class="bar aktif">Nonaktif</div></option>
             </select>
             <p>Alamat Pekerja</p>
             <input type="text" class="form-input" name="alamat_pekerja" id="alamat_pekerja">
             <p>ID Invoice</p>
             <input type="number" class="form-input" name="id_invoice" id="id_invoice">
             <p>Tugas</p>
-            <textarea name="" id="" cols="20" rows="30" name="tugas" id="tugas"></textarea>
+            <textarea cols="20" rows="30" name="tugas" id="tugas"></textarea>
             <p>Deadline</p>
             <input type="date" class="form-input" name="deadline" id="deadline">
             <p>Tugas Selesai</p>

@@ -9,9 +9,8 @@ class Pekerja extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'id',
         'nama_pekerja',
-        'no_telp_pekeja',
+        'no_telp_pekerja',
         'status',
         'alamat_pekerja',
         'id_invoice',

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pekerjas', function (Blueprint $table) {
             $table->id();
             $table->string('nama_pekerja');
-            $table->integer('no_telp_pekerja')->unsigned();
+            $table->string('no_telp_pekerja');
             $table->string('status');
             $table->string('alamat_pekerja');
             $table->integer('id_invoice')->unsigned();

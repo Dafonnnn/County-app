@@ -30,6 +30,6 @@ Route::get('forminvoice', function () {
     return view('forminvoice');
 });
 Route::resource('pekerja', PekerjaController::class);
-Route::get('formpekerja', function (){
-    return view('formpekerja');
-});
+// Route::get('formpekerja', function (){
+//     return view('formpekerja');
+// });

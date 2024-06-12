@@ -29,10 +29,9 @@ class PekerjaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store() //
+    public function store(Request $request) //
     {
-        request()->validate([
-            'id' => ['required'],
+        $request->validate([
             'nama_pekerja' => ['required'],
             'no_telp_pekerja' => ['required'],
             'status' => ['required'],
@@ -44,16 +43,17 @@ class PekerjaController extends Controller
         ]);
 
         Pekerja::create([
-            'id'=>request('id'),
-            'nama_pekerja'=>request('nama_pekerja'),
-            'no_telp_pekerja'=>request('no_telp_pekerja'),
-            'status'=>request('status'),
-            'alamat_pekerja'=>request('alamat_pekerja'),
-            'id_invoice'=>request('id_invoice'),
-            'tugas'=>request('tugas'),
-            'deadline'=>request('deadline'),
-            'tugas_selesai'=>request('tugas_selesai')
+            'nama_pekerja' => $request->nama_pekerja,
+            'no_telp_pekerja' => $request->no_telp_pekerja,
+            'status' => $request->status,
+            'alamat_pekerja' => $request->alamat_pekerja,
+            'id_invoice' => $request->id_invoice,
+            'tugas' => $request->tugas,
+            'deadline' => $request->deadline,
+            'tugas_selesai' => $request->tugas_selesai
         ]);
+
+        // return redirect()->route('pekerja.index')->with('success', 'Pekerja created successfully!');
     }
 
     /**
