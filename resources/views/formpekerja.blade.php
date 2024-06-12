@@ -23,28 +23,31 @@
             <div class="side-button" onclick="window.location.href = 'pekerja';"><i class="fa-solid fa-laptop"></i>Pekerja</div>
         </aside>
         <main>
-        <form action="">
+        <form action="" method="POST">
+            @csrf
             <p>Nama Pekerja</p>
-            <input type="text" class="form-input">
+            <input type="text" class="form-input" name="nama_pekerja" id="nama_pekerja">
             <p>No Telp Pekerja</p>
-            <input type="tel" class="form-input">
+            <input type="tel" class="form-input" name="no_telp_pekerja" id="no_telp_pekerja">
             <p>Status</p>
-            <select name="" id="" class="form-input">
+            <select name="" id="" class="form-input" name="status" id="status">
                 <option value=""><div class="bar aktif">Aktif</div></option>
                 <option value=""><div class="bar aktif">Nonaktif</div></option>
             </select>
             <p>Alamat Pekerja</p>
-            <input type="text" class="form-input">
+            <input type="text" class="form-input" name="alamat_pekerja" id="alamat_pekerja">
             <p>ID Invoice</p>
-            <input type="number" class="form-input">
+            <input type="number" class="form-input" name="id_invoice" id="id_invoice">
             <p>Tugas</p>
-            <textarea name="" id="" cols="20" rows="30"></textarea>
+            <textarea name="" id="" cols="20" rows="30" name="tugas" id="tugas"></textarea>
             <p>Deadline</p>
-            <input type="date" class="form-input">
+            <input type="date" class="form-input" name="deadline" id="deadline">
             <p>Tugas Selesai</p>
-            <input type="text" class="form-input">
+            <input type="text" class="form-input" name="tugas_selesai" id="tugas_selesai">
+            <br>
+            <button class="button">Submit</button>
         </form>
-        <button class="button" onclick="window.location.href = 'pekerja';">Submit</button>
+        
         </main>
     </div>
 </body>

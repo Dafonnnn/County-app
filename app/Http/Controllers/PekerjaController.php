@@ -29,9 +29,31 @@ class PekerjaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store() //
     {
-        //
+        request()->validate([
+            'id' => ['required'],
+            'nama_pekerja' => ['required'],
+            'no_telp_pekerja' => ['required'],
+            'status' => ['required'],
+            'alamat_pekerja' => ['required'],
+            'id_invoice' => ['required'],
+            'tugas' => ['required'],
+            'deadline' => ['required'],
+            'tugas_selesai' => ['required']
+        ]);
+
+        Pekerja::create([
+            'id'=>request('id'),
+            'nama_pekerja'=>request('nama_pekerja'),
+            'no_telp_pekerja'=>request('no_telp_pekerja'),
+            'status'=>request('status'),
+            'alamat_pekerja'=>request('alamat_pekerja'),
+            'id_invoice'=>request('id_invoice'),
+            'tugas'=>request('tugas'),
+            'deadline'=>request('deadline'),
+            'tugas_selesai'=>request('tugas_selesai')
+        ]);
     }
 
     /**
