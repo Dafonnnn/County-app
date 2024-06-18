@@ -43,15 +43,19 @@
                     <td class="bold">{{$pekerja->id}}</td>
                     <td class="bold">{{$pekerja->nama_pekerja}}</td>
                     <td>{{$pekerja->no_telp_pekerja}}</td>
-                    <td><div class="bar aktif">{{$pekerja->status}}</div></td>
+                    <td><div class="bar {{$pekerja->status == 'Aktif' ? 'aktif' : 'nonaktif'}}">{{$pekerja->status}}</div></td>
                     <td>{{$pekerja->alamat_pekerja}}</td>
                     <td>{{$pekerja->id_invoice}}</td>
                     <td>{{$pekerja->tugas}}</td>
                     <td>{{$pekerja->deadline}}</td>
                     <td>{{$pekerja->tugas_selesai}}</td>
                     <td class="flex">
-                        <div class="action-btn edit"><i class="fa-solid fa-pencil"></i></div>
-                        <div class="action-btn delete"><i class="fa-solid fa-trash-can"></i></div>
+                        <a class="action-btn edit" href="/pekerja/{{$pekerja->id}}/edit"><i class="fa-solid fa-pencil"></i></a>
+                        <form action="pekerja/{{$pekerja->id}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="action-btn delete"><i class="fa-solid fa-trash-can"></i></button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
