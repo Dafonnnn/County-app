@@ -9,7 +9,7 @@ class Client extends Model
 {
     use HasFactory;
 
-    public $table = 'client';
+    public $table = 'clients';
 
     const CREATE_AT = 'create_at';
     const UPDATED_AT = 'updated_at';
@@ -18,12 +18,12 @@ class Client extends Model
 
     public $fillable = [
         'id',
-        'nama',
-        'alamat',
-        'no_telp',
+        'nama_perusahaan',
+        'alamat_perusahaan',
+        'no_telp_perusahaan',
         'status',
         'paket',
-        'kebutuhan',
+        'kebutuhan_laporan',
         'masa_aktif',
         'nama_pic',
         'telp_pic',
