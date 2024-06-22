@@ -23,7 +23,8 @@
             <div class="side-button" onclick="window.location.href = 'pekerja';"><i class="fa-solid fa-laptop"></i>Pekerja</div>
         </aside>
         <main>
-        <form action="">
+        <form action="{{ route('insertdata') }}" method="POST">
+            @csrf
             <p>Nama Perusahaan</p>
             <input type="text" class="form-input">
             <p>Tanggal Deal</p>

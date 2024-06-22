@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PekerjaController;
-
+use App\Http\Controllers\InvoiceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +29,7 @@ Route::get('invoice', function () {
 Route::get('forminvoice', function () {
     return view('forminvoice');
 });
+Route::post('/insertdata',[InvoiceController::class, 'store'])->name('insertdata'); 
 Route::resource('pekerja', PekerjaController::class);
 // Route::get('formpekerja', function (){
 //     return view('formpekerja');
