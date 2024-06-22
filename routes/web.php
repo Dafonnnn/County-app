@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PekerjaController;
-use App\Http\Controllers\InvoiceController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,15 +14,15 @@ use App\Http\Controllers\InvoiceController;
 |
 */
 
-Route::get('index', function () {
-    return view('index');
-});
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('formclient', function () {
-    return view('formclient');
-});
+// Route::get('index', function () {
+//     return view('index');
+// });
+// Route::get('/', function () {
+//     return view('index');
+// });
+// Route::get('formclient', function () {
+//     return view('formclient');
+// });
 Route::get('invoice', function () {
     return view('invoice');
 });
@@ -31,6 +31,7 @@ Route::get('forminvoice', function () {
 });
 Route::post('/insertdata',[InvoiceController::class, 'store'])->name('insertdata'); 
 Route::resource('pekerja', PekerjaController::class);
+Route::resource('client', ClientController::class);
 // Route::get('formpekerja', function (){
 //     return view('formpekerja');
 // });

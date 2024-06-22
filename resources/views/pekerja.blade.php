@@ -17,7 +17,7 @@
     </nav>
     <div class="flex">
          <aside>
-            <div class="side-button" onclick="window.location.href = 'index';"><i class="fa-solid fa-user-group"></i>Client</div>
+            <div class="side-button" onclick="window.location.href = 'client';"><i class="fa-solid fa-user-group"></i>Client</div>
             <div class="side-button" onclick="window.location.href = 'invoice';"><i class="fa-solid fa-calendar-days"></i>Invoice</div>
             <div class="side-button active" onclick="window.location.href = 'pekerja';"><i class="fa-solid fa-laptop"></i>Pekerja</div>
         </aside>
