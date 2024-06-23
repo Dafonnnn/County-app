@@ -23,7 +23,7 @@
         </aside>
         <main>
             <h1><span>Hello, </span>Daniel Fonseca</h1>
-            <button class="button" onclick="window.location.href = 'formpekerja';">+ Add</button>
+            <button class="button" onclick="window.location.href = '/pekerja/create';">+ Add</button>
             <div class="table-container">
             <table>
                 <tr>

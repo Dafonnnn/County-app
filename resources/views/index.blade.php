@@ -27,7 +27,7 @@
                 <div class="info-box">
                     <i class="fa-solid fa-user-group"></i>
                     <p>Client Aktif</p>
-                    <h1>42<span>saat ini</span></h1>
+                    <h1>{{$client_aktif}}<span>saat ini</span></h1>
                 </div>
                 <div class="info-box-2">
                     <div>
@@ -35,10 +35,10 @@
                         <p>Paket Aktif</p>
                     </div>
                     <div class="bars">
-                        <div class="bar gold bar14">14</div>
-                        <div class="bar silver bar9">9</div>
-                        <div class="bar bronze bar14">14</div>
-                        <div class="bar itbss bar24">24</div>
+                        <div class="bar gold" style="width:{{$paket_gold*20}}px">{{$paket_gold}}</div>
+                        <div class="bar silver" style="width:{{$paket_silver*20}}px">{{$paket_silver}}</div>
+                        <div class="bar bronze" style="width:{{$paket_bronze*20}}px">{{$paket_bronze}}</div>
+                        <div class="bar itbss" style="width:{{$paket_itbss*20}}px">{{$paket_itbss}}</div>
                     </div>
         
                     
