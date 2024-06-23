@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PekerjaController;
+use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +16,8 @@ use App\Http\Controllers\PekerjaController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-// Route::get('index', function () {
-//     return view('index');
-// });
-// Route::get('/', function () {
-//     return view('index');
-// });
+Route::get('/', [AuthController::class, 'index'])->name("login-view");
+Route::post('/login-account', [AuthController::class, 'login'])->name("login-account");
 // Route::get('formclient', function () {
 //     return view('formclient');
 // });
@@ -29,7 +27,7 @@ Route::get('invoice', function () {
 Route::get('forminvoice', function () {
     return view('forminvoice');
 });
-Route::post('/insertdata',[InvoiceController::class, 'store'])->name('insertdata'); 
+Route::post('/insertdata',[InvoiceController::class, 'store'])->name('insertdata');
 Route::resource('pekerja', PekerjaController::class);
 Route::resource('client', ClientController::class);
 // Route::get('formpekerja', function (){
