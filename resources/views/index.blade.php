@@ -60,91 +60,28 @@
                     <th>Alamat PIC</th>
                     <th>Action</th>
                 </tr>
-                <tr>
-                    <td class="bold">1</td>
-                    <td class="bold">Azul</td>
-                    <td>742 Evergreen Terrace, Springfield, USA</td>
-                    <td>987654321</td>
-                    <td><div class="bar aktif">Aktif</div></td>
-                    <td><div class="bronze bar">Bronze</div></td>
-                    <td>The report highlights a 10% increase in...</td>
-                    <td>02/03/2024</td>
-                    <td>Jessica Sentoso</td>
-                    <td>123819238</td>
-                    <td>742 Evergreen Terrace, Springfield, USA</td>
+                @foreach ( $clients as $client)
+                <tr> 
+                    <td class="bold">{{$client->id}}</td>
+                    <td class="bold">{{$client->nama_perusahaan}}</td>
+                    <td>{{$pekerja->no_telp_perusahaan}}</td>
+                    <td><div class="bar {{$client->status == 'Aktif' ? 'aktif' : 'nonaktif'}}">{{$client->status}}</div></td>
+                    <td><div class="bar {{$client->paket == 'Aktif' ? 'aktif' : 'nonaktif'}}">{{$client->status}}</div></td>
+                    <td>{{$pekerja->alamat_pekerja}}</td>
+                    <td>{{$pekerja->id_invoice}}</td>
+                    <td>{{$pekerja->tugas}}</td>
+                    <td>{{$pekerja->deadline}}</td>
+                    <td>{{$pekerja->tugas_selesai}}</td>
                     <td class="flex">
-                        <div class="action-btn edit"><i class="fa-solid fa-pencil"></i></div>
-                        <div class="action-btn delete"><i class="fa-solid fa-trash-can"></i></div>
+                        <a class="action-btn edit" href="/pekerja/{{$pekerja->id}}/edit"><i class="fa-solid fa-pencil"></i></a>
+                        <form action="pekerja/{{$pekerja->id}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="action-btn delete"><i class="fa-solid fa-trash-can"></i></button>
+                        </form>
                     </td>
                 </tr>
-                <tr>
-                    <td class="bold">2</td>
-                    <td class="bold">Legunis</td>
-                    <td>221B Baker Street, London, UK</td>
-                    <td>456123789</td>
-                    <td><div class="bar nonaktif">Nonaktif</div></td>
-                    <td><div class="bar gold">Gold</div></td>
-                    <td>The report highlights a 10% increase in...</td>
-                    <td>02/03/2024</td>
-                    <td>Jessica Sentoso</td>
-                    <td>123819238</td>
-                    <td>742 Evergreen Terrace, Springfield, USA</td>
-                    <td class="flex">
-                        <div class="action-btn edit"><i class="fa-solid fa-pencil"></i></div>
-                        <div class="action-btn delete"><i class="fa-solid fa-trash-can"></i></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="bold">3</td>
-                    <td class="bold">Inienak</td>
-                    <td>4 Privet Drive, Little Whinging, Surrey, UK</td>
-                    <td>789654123</td>
-                    <td><div class="bar aktif">Aktif</div></td>
-                    <td><div class="bar itbss">ITBSS</div></td>
-                    <td>The report highlights a 10% increase in...</td>
-                    <td>02/03/2024</td>
-                    <td>Jessica Sentoso</td>
-                    <td>123819238</td>
-                    <td>742 Evergreen Terrace, Springfield, USA</td>
-                    <td class="flex">
-                        <div class="action-btn edit"><i class="fa-solid fa-pencil"></i></div>
-                        <div class="action-btn delete"><i class="fa-solid fa-trash-can"></i></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="bold">4</td>
-                    <td class="bold">Foreign</td>
-                    <td>123 Sesame Street, New York, USA</td>
-                    <td>321987654</td>
-                    <td><div class="bar aktif">Aktif</div></td>
-                    <td><div class="bar gold">Gold</div></td>
-                    <td>The report highlights a 10% increase in...</td>
-                    <td>02/03/2024</td>
-                    <td>Jessica Sentoso</td>
-                    <td>123819238</td>
-                    <td>742 Evergreen Terrace, Springfield, USA</td>
-                    <td class="flex">
-                        <div class="action-btn edit"><i class="fa-solid fa-pencil"></i></div>
-                        <div class="action-btn delete"><i class="fa-solid fa-trash-can"></i></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="bold">5</td>
-                    <td class="bold">Chicken Earth</td>
-                    <td>12 Grimmauld Place, London, UK</td>
-                    <td>654789123</td>
-                    <td><div class="bar aktif">Aktif</div></td>
-                    <td><p class="bar gold">Gold</p></td>
-                    <td>The report highlights a 10% increase in...</td>
-                    <td>02/03/2024</td>
-                    <td>Jessica Sentoso</td>
-                    <td>123819238</td>
-                    <td>742 Evergreen Terrace, Springfield, USA</td>
-                    <td class="flex">
-                        <div class="action-btn edit"><i class="fa-solid fa-pencil"></i></div>
-                        <div class="action-btn delete"><i class="fa-solid fa-trash-can"></i></div>
-                    </td>
-                </tr>
+                @endforeach
             </table>
             </div>
         </main>
