@@ -64,17 +64,18 @@
                 <tr> 
                     <td class="bold">{{$client->id}}</td>
                     <td class="bold">{{$client->nama_perusahaan}}</td>
-                    <td>{{$pekerja->no_telp_perusahaan}}</td>
+                    <td class="bold">{{$client->alamat_perusahaan}}</td>
+                    <td>{{$client->no_telp_perusahaan}}</td>
                     <td><div class="bar {{$client->status == 'Aktif' ? 'aktif' : 'nonaktif'}}">{{$client->status}}</div></td>
-                    <td><div class="bar {{$client->paket == 'Aktif' ? 'aktif' : 'nonaktif'}}">{{$client->status}}</div></td>
-                    <td>{{$pekerja->alamat_pekerja}}</td>
-                    <td>{{$pekerja->id_invoice}}</td>
-                    <td>{{$pekerja->tugas}}</td>
-                    <td>{{$pekerja->deadline}}</td>
-                    <td>{{$pekerja->tugas_selesai}}</td>
+                    <td><div class="bar {{$client->paket == 'Aktif' ? 'aktif' : 'nonaktif'}}">{{$client->paket}}</div></td>
+                    <td>{{$client->kebutuhan_laporan}}</td>
+                    <td>{{$client->masa_aktif}}</td>
+                    <td>{{$client->nama_pic}}</td>
+                    <td>{{$client->telp_pic}}</td>
+                    <td>{{$client->alamat_pic}}</td>
                     <td class="flex">
-                        <a class="action-btn edit" href="/pekerja/{{$pekerja->id}}/edit"><i class="fa-solid fa-pencil"></i></a>
-                        <form action="pekerja/{{$pekerja->id}}" method="POST">
+                        <a class="action-btn edit" href="/client/{{$client->id}}/edit"><i class="fa-solid fa-pencil"></i></a>
+                        <form action="client/{{$client->id}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="action-btn delete"><i class="fa-solid fa-trash-can"></i></button>

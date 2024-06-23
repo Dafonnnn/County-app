@@ -57,6 +57,8 @@ class ClientController extends Controller
             'alamat_pic' => $request->alamat_pic,
         ]);
 
+        return redirect('client');
+
         // return redirect()->route('pekerja.index')->with('success', 'Pekerja created successfully!');
     }
 
