@@ -14,20 +14,20 @@
     <nav><img src="logo.png" alt=""></nav>
     <div class="flex">
         <aside>
-            <div class="side-button active" onclick="window.location.href = 'client';"><i class="fa-solid fa-user-group"></i>Client</div>
-            <div class="side-button" onclick="window.location.href = 'invoice';"><i class="fa-solid fa-calendar-days"></i>Invoice</div>
-            <div class="side-button" onclick="window.location.href = 'pekerja';"><i class="fa-solid fa-laptop"></i>Pekerja</div>
-            
+            <div class="side-button active" onclick="window.location.href = '/client';"><i class="fa-solid fa-user-group"></i>Client</div>
+            <div class="side-button" onclick="window.location.href = '/invoice';"><i class="fa-solid fa-calendar-days"></i>Invoice</div>
+            <div class="side-button" onclick="window.location.href = '/pekerja';"><i class="fa-solid fa-laptop"></i>Pekerja</div>
+            <div class="side-button" onclick="window.location.href = '/logout';"><i class="fa-solid fa-logout"></i>Keluar</div>
         </aside>
         <main>
             <h1><span>Hello, </span>Daniel Fonseca</h1>
-            
-            <button class="button" onclick="window.location.href = 'client/create';">+ Add</button>
+
+            <button class="button" onclick="window.location.href = '/client/create';">+ Add</button>
             <div class="info-container flex">
                 <div class="info-box">
                     <i class="fa-solid fa-user-group"></i>
                     <p>Client Aktif</p>
-                    <h1>42<span>saat ini</span></h1>
+                    <h1>{{$client_aktif}}<span>saat ini</span></h1>
                 </div>
                 <div class="info-box-2">
                     <div>
@@ -35,13 +35,13 @@
                         <p>Paket Aktif</p>
                     </div>
                     <div class="bars">
-                        <div class="bar gold bar14">14</div>
-                        <div class="bar silver bar9">9</div>
-                        <div class="bar bronze bar14">14</div>
-                        <div class="bar itbss bar24">24</div>
+                        <div class="bar gold" style="width:{{$paket_gold*20}}px">{{$paket_gold}}</div>
+                        <div class="bar silver" style="width:{{$paket_silver*20}}px">{{$paket_silver}}</div>
+                        <div class="bar bronze" style="width:{{$paket_bronze*20}}px">{{$paket_bronze}}</div>
+                        <div class="bar itbss" style="width:{{$paket_itbss*20}}px">{{$paket_itbss}}</div>
                     </div>
-        
-                    
+
+
                 </div>
             </div>
             <div class="table-container">
@@ -61,20 +61,21 @@
                     <th>Action</th>
                 </tr>
                 @foreach ( $clients as $client)
-                <tr> 
+                <tr>
                     <td class="bold">{{$client->id}}</td>
                     <td class="bold">{{$client->nama_perusahaan}}</td>
-                    <td>{{$pekerja->no_telp_perusahaan}}</td>
+                    <td class="bold">{{$client->alamat_perusahaan}}</td>
+                    <td>{{$client->no_telp_perusahaan}}</td>
                     <td><div class="bar {{$client->status == 'Aktif' ? 'aktif' : 'nonaktif'}}">{{$client->status}}</div></td>
-                    <td><div class="bar {{$client->paket == 'Aktif' ? 'aktif' : 'nonaktif'}}">{{$client->status}}</div></td>
-                    <td>{{$pekerja->alamat_pekerja}}</td>
-                    <td>{{$pekerja->id_invoice}}</td>
-                    <td>{{$pekerja->tugas}}</td>
-                    <td>{{$pekerja->deadline}}</td>
-                    <td>{{$pekerja->tugas_selesai}}</td>
+                    <td><div class="bar {{$client->paket == 'Aktif' ? 'aktif' : 'nonaktif'}}">{{$client->paket}}</div></td>
+                    <td>{{$client->kebutuhan_laporan}}</td>
+                    <td>{{$client->masa_aktif}}</td>
+                    <td>{{$client->nama_pic}}</td>
+                    <td>{{$client->telp_pic}}</td>
+                    <td>{{$client->alamat_pic}}</td>
                     <td class="flex">
-                        <a class="action-btn edit" href="/pekerja/{{$pekerja->id}}/edit"><i class="fa-solid fa-pencil"></i></a>
-                        <form action="pekerja/{{$pekerja->id}}" method="POST">
+                        <a class="action-btn edit" href="/client/{{$client->id}}/edit"><i class="fa-solid fa-pencil"></i></a>
+                        <form action="client/{{$client->id}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="action-btn delete"><i class="fa-solid fa-trash-can"></i></button>

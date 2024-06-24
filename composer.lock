@@ -8124,5 +8124,9 @@
         "php": "^8.1"
     },
     "platform-dev": [],
+<<<<<<< HEAD
+    "plugin-api-version": "2.3.0"
+=======
     "plugin-api-version": "2.6.0"
+>>>>>>> parent of b908c5b (update(login): login)
 }
