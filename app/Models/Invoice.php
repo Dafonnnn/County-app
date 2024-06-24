@@ -9,14 +9,13 @@ class Invoice extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'id',
-        'nama',
-        'tanggal_deal',
-        'periode',
-        'jenis',
-        'closing',
-        'pic',
-        'pembayaran',
-        'tanda'
+        "nama_client",
+        "tanggal_deal",
+        "periode_paket",
+        "jenis_paket",
+        "closing_bill",
+        "pic_laporan",
+        "pembayaran",
+        "tanda_selesai"
     ];
 }

@@ -17,13 +17,14 @@
     </nav>
     <div class="flex">
          <aside>
-            <div class="side-button" onclick="window.location.href = 'client';"><i class="fa-solid fa-user-group"></i>Client</div>
-            <div class="side-button" onclick="window.location.href = 'invoice';"><i class="fa-solid fa-calendar-days"></i>Invoice</div>
-            <div class="side-button active" onclick="window.location.href = 'pekerja';"><i class="fa-solid fa-laptop"></i>Pekerja</div>
+            <div class="side-button" onclick="window.location.href = '/client';"><i class="fa-solid fa-user-group"></i>Client</div>
+            <div class="side-button" onclick="window.location.href = '/invoice';"><i class="fa-solid fa-calendar-days"></i>Invoice</div>
+            <div class="side-button active" onclick="window.location.href = '/pekerja';"><i class="fa-solid fa-laptop"></i>Pekerja</div>
+            <div class="side-button" onclick="window.location.href = '/logout';"><i class="fa-solid fa-logout"></i>Keluar</div>
         </aside>
         <main>
             <h1><span>Hello, </span>Daniel Fonseca</h1>
-            <button class="button" onclick="window.location.href = 'formpekerja';">+ Add</button>
+            <button class="button" onclick="window.location.href = '/pekerja/create';">+ Add</button>
             <div class="table-container">
             <table>
                 <tr>
@@ -39,7 +40,7 @@
                     <th>Action</th>
                 </tr>
                 @foreach ( $pekerjas as $pekerja)
-                <tr> 
+                <tr>
                     <td class="bold">{{$pekerja->id}}</td>
                     <td class="bold">{{$pekerja->nama_pekerja}}</td>
                     <td>{{$pekerja->no_telp_pekerja}}</td>

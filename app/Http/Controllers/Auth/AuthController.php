@@ -19,15 +19,15 @@ class AuthController extends Controller
         ]);
 
         if($validation->fails()) {
-            return back()->withErrors("message", "Data tidak lengkap");
+            return back();
         }
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard');
+            return redirect("/client");
         }
 
-        return back()->withErrors("message", "Gagal login");
+        return back();
     }
 
     public function logout()

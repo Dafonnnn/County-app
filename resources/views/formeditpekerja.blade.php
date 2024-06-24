@@ -11,16 +11,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+
     <nav>
         <div><img src="logo.png" alt=""></div>
         <div><input type="text" placeholder="Search"></div>
     </nav>
     <div class="flex">
          <aside>
-            <div class="side-button active" onclick="window.location.href = 'index';"><i class="fa-solid fa-user-group"></i>Client</div>
-            <div class="side-button" onclick="window.location.href = 'invoice';"><i class="fa-solid fa-calendar-days"></i>Invoice</div>
-            <div class="side-button" onclick="window.location.href = 'pekerja';"><i class="fa-solid fa-laptop"></i>Pekerja</div>
+            <div class="side-button active" onclick="window.location.href = '/index';"><i class="fa-solid fa-user-group"></i>Client</div>
+            <div class="side-button" onclick="window.location.href = '/invoice';"><i class="fa-solid fa-calendar-days"></i>Invoice</div>
+            <div class="side-button" onclick="window.location.href = '/pekerja';"><i class="fa-solid fa-laptop"></i>Pekerja</div>
+            <div class="side-button" onclick="window.location.href = '/logout';"><i class="fa-solid fa-logout"></i>Keluar</div>
         </aside>
         <main>
         <form method="POST" action="/pekerja/{{$pekerja->id}}">
@@ -49,7 +50,7 @@
             <br>
             <button class="button">Submit</button>
         </form>
-        
+
         </main>
     </div>
 </body>

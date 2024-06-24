@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use Illuminate\Http\Request;
 use App\Models\Pekerja;
 use App\Models\Invoice;
@@ -13,9 +14,9 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        $Invoices = Invoice::all();
+        $invoice = Invoice::all();
         return view('Invoice', [
-            'Invoices' => $Invoices
+            'invoice' => $invoice
         ]);
     }
 
@@ -28,8 +29,17 @@ class InvoiceController extends Controller
     }
 
     public function insertdata(Request $request){
-        //dd($request->all());
-        Invoice::validate($request->all());
+        Invoice::create([
+            "nama_client" => $request->nama_client,
+            "tanggal_deal" => $request->tanggal_deal,
+            "periode_paket" => $request->periode_paket,
+            "jenis_paket" => $request->jenis_paket,
+            "closing_bill" => $request->closing_bill,
+            "pic_laporan" => $request->pic_laporan,
+            "pembayaran" => $request->pembayaran,
+            "tanda_selesai" => $request->tanda_selesai
+        ]);
+
         return redirect()->route('invoice');
     }
 
@@ -38,16 +48,6 @@ class InvoiceController extends Controller
      */
     public function store(Request $request) //
     {
-        // $request->validate([
-        //     'nama_perusahaan' => ['required'],
-        //     'tanggal_deal' => ['required'],
-        //     'periode_paket' => ['required'], // Removed space after 'periode_paket'
-        //     'jenis_paket' => ['required'],
-        //     'closing_bill' => ['required'],
-        //     'pic_laporan' => ['required'],
-        //     'pembayaran' => ['required'],
-        //     'tanda_selesai' => ['required']
-        // ]);
 
         invoice::create([
             'nama_perusahaan' => $request->nama_perusahaan,
@@ -69,9 +69,13 @@ class InvoiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Invoice $invoice )
+    public function show($id )
     {
-        dd($invoice);
+        $invoice = Invoice::find($id);
+
+        return view("formeditinvoice", [
+            "invoice" => $invoice
+        ]);
     }
 
     /**
@@ -85,17 +89,30 @@ class InvoiceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Invoice $invoice, Request $request)
+    public function update($id, Request $request)
     {
-        //
+        $invoice = Invoice::find($id);
+
+        $invoice->update([
+            "nama_client" => $request->nama_client,
+            "tanggal_deal" => $request->tanggal_deal,
+            "periode_paket" => $request->periode_paket,
+            "jenis_paket" => $request->jenis_paket,
+            "closing_bill" => $request->closing_bill,
+            "pic_laporan" => $request->pic_laporan,
+            "pembayaran" => $request->pembayaran,
+            "tanda_selesai" => $request->tanda_selesai
+        ]);
+
+        return redirect()->route('invoice');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Invoice $invoice)
+    public function delete($id)
     {
-        $invoice->delete();
+        Invoice::find($id)->delete();
         return redirect ('invoice');
     }
 }
