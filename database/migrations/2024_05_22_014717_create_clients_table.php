@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('status', 15);
             $table->string('paket', 10);
             $table->string('kebutuhan_laporan', 250);
-            $table->dateTime('masa_aktif'); // Menggunakan dateTime untuk tanggal dan waktu
+            $table->date('masa_aktif'); // Menggunakan dateTime untuk tanggal dan waktu
             $table->string('nama_pic', 30);
             $table->string('telp_pic', 12); // Menggunakan string untuk nomor telepon
             $table->string('alamat_pic', 200);

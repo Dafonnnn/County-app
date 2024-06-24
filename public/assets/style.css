@@ -81,7 +81,7 @@ main span{
     color: #006ec3;
     font-weight: bold;
     font-size: 40px;
-    
+
 }
 main h1{
     font-weight: bold;
@@ -120,7 +120,7 @@ main h1{
 }
 .info-box-2{
     display: flex;
-    
+
     gap: 10px;
     padding: 44px;
     position: relative;
@@ -161,7 +161,7 @@ main h1{
     width:min-content;
     /* justify-content: center; */
     padding:2px 0px 2px 10px;
-    font-weight: bold;  
+    font-weight: bold;
     /* width:100%;  */
 }
 .aktif{
@@ -207,7 +207,7 @@ main h1{
     overflow-x: scroll; */
     margin-top: 120px;
     min-width:500px;
-    max-width: 1200px;
+    max-width: 1000px;
     position: relative;
 }
 table{
@@ -266,7 +266,7 @@ textarea{
     width:400px;
 }
 .save{
-    
+
 }
 .paginate_button{
     /* height:20px; */

@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('nama_client', 50);
             $table->date('tanggal_deal');
-            $table->integer('periode_paket')->unsigned();
+            $table->string('periode_paket');
             $table->string('jenis_paket', 15);
-            $table->date('closing_bill');
-            $table->string('pic_laporan', 30);
-            $table->string('pembayaran', 30);
-            $table->string('tanda_selesai', 15);
+            $table->integer('closing_bill');
+            $table->text('pic_laporan');
+            $table->integer('pembayaran');
+            $table->integer('tanda_selesai');
             $table->timestamps();
         });
     }
