@@ -203,6 +203,7 @@ main h1{
     gap:14px;
 }
 .table-container{
+    /* overflow-y: auto; */
     overflow-x: scroll;
     margin-top: 120px;
     min-width:500px;
@@ -266,4 +267,8 @@ textarea{
 }
 .save{
 
+}
+.paginate_button{
+    /* height:20px; */
+    font-size: 12px;
 }
